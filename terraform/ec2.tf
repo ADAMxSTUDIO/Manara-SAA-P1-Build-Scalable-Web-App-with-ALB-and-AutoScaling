@@ -40,6 +40,11 @@ EOF
 resource "aws_iam_role" "ssm" {
   name = "production-ec2-ssm-role"
 
+  tags = {
+    Name    = "production-ec2-ssm-role"
+    Service = "ssm"
+  }
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -58,4 +63,9 @@ resource "aws_iam_role_policy_attachment" "ssm_core" {
 resource "aws_iam_instance_profile" "ssm" {
   name = "production-ec2-ssm-profile"
   role = aws_iam_role.ssm.name
+
+  tags = {
+    Name    = "production-ec2-ssm-profile"
+    Service = "ssm"
+  }
 }

@@ -160,6 +160,11 @@ resource "aws_vpc_endpoint" "ssm" {
   subnet_ids          = [aws_subnet.private_app_a.id, aws_subnet.private_app_b.id]
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
+
+  tags = {
+    Name    = "ssm-endpoint"
+    Service = "ssm"
+  }
 }
 
 resource "aws_vpc_endpoint" "ssmmessages" {
@@ -169,6 +174,11 @@ resource "aws_vpc_endpoint" "ssmmessages" {
   subnet_ids          = [aws_subnet.private_app_a.id, aws_subnet.private_app_b.id]
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
+
+  tags = {
+    Name    = "ssmmessages-endpoint"
+    Service = "ssmmessages"
+  }
 }
 
 resource "aws_vpc_endpoint" "ec2messages" {
@@ -178,4 +188,9 @@ resource "aws_vpc_endpoint" "ec2messages" {
   subnet_ids          = [aws_subnet.private_app_a.id, aws_subnet.private_app_b.id]
   security_group_ids  = [aws_security_group.vpc_endpoints.id]
   private_dns_enabled = true
+
+  tags = {
+    Name    = "ec2messages-endpoint"
+    Service = "ec2messages"
+  }
 }
