@@ -1,6 +1,6 @@
 # Project Presentation
 
-*Selecting the 1st project from Manara SAA Graduation Project Ideas* [[app.manara.tech]]*, as shown below*
+*Selecting the 1st project from Manara SAA Graduation Project Ideas via* <a href="https://app.manara.tech/">Manara Website</a>*, as shown below*
 
 > Architecture: EC2-Based 
 >
@@ -27,6 +27,10 @@ Learning Outcomes:
 >- Use Systems Manager Session Manager as a bastion-free access alternative
 
 # Solutions Design and Architecture
+
+## 0. HLD 
+
+<img width="450" height="1024" alt="image" src="HLDiagram-Manara - SAA - P1 - Build Scalable Web App with ALB and AutoScaling.jpg" />
 
 ## I. Service and Components Choice
 
@@ -203,3 +207,33 @@ Auto Scaling Group (EC2)
   ↓
 Amazon RDS Multi-AZ
 ```
+
+---
+
+## IV. Terraform File Structure
+
+``` PlainText
+.
+├── backend.tf
+├── provider.tf
+├── variables.tf
+├── outputs.tf
+│
+├── vpc.tf
+├── route53.tf
+├── cloudfront.tf
+├── waf.tf
+├── alb.tf
+├── ec2.tf
+├── asg.tf
+├── rds.tf
+├── cloudwatch.tf
+├── sns.tf
+└── security-groups.tf
+```
+
+---
+
+## Author
+
+Abderrahmane LAZREK - 12 Nov 2026
